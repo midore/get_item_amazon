@@ -19,6 +19,12 @@ print item.productgroup
 print "\n--------\n"
 print item.detail
 
+# All index(xxx) of detail be able to print item.xxxx
+# print item.binding
+# print item.creator
+# print item.ean
+# ...
+#
 =begin
 % ./run_get_item_amazon.rb
 --------
