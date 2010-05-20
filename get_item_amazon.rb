@@ -1,5 +1,5 @@
 
-# amazon_api.rb
+# get_item_amazon.rb
 begin
   raise "Error: only ruby 1.9.1" if RUBY_VERSION < "1.9.1"
   ext = Encoding.default_external.name
