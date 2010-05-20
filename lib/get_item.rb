@@ -38,8 +38,7 @@ module AmazonAPI
       "Rank", "DetailPageURL", "Artist",
       "Format", "NumberOfDiscs", "OriginalReleaseDate",
       "PackageQuantity", "ReleaseDate", "UPC", "RunningTime"
-    ]
-    ary.each{|x| attr_accessor x.downcase.to_sym}
+    ].each{|x| attr_accessor x.downcase.to_sym}
 
     def initialize(h)
       return nil unless h
@@ -54,15 +53,12 @@ module AmazonAPI
     end
 
     def set_up(h)
-      # self.send() controled by line 42 
-        h.each{|k,v| 
-          begin
+      h.each{|k,v| 
+        begin
           self.send("#{k.downcase.to_sym}=", v)
-          rescue NoMethodError
-            # new key from Amazon
-            # p k
-            next
-          end
+        rescue NoMethodError
+          next # ignore new value.
+        end
         }
     end
 
