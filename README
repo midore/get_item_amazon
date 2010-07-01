@@ -4,6 +4,7 @@ $ chmod +x bin/run-get-item-amazon.rb'.
 
 $ cd bin
 $ ./run-get-item-amazon.rb
+$ ./run-get-item-amazon.rb 9784274068102
 
 # License
  Copyright (C) 2010 midore
