@@ -19,13 +19,13 @@ module AmazonAPI
       $LOAD_PATH.delete(".")
     end
 
-    def run
+    def run(arg)
       own_dir
       # Your path
-      conf = 'path/to/your/get-item-amazon-config'
+      conf = '/path/to/config'
       load conf, wrap=true
       require 'get-item-amazon'
-      ean = ARGV[0]
+      ean = arg[0]
       # たのしいRuby 第3版
       ean ||= '9784797357400'
       exit if /\D/.match(ean)
@@ -62,5 +62,5 @@ module AmazonAPI
   end
 end
 
-AmazonAPI::Start.new.run
+AmazonAPI::Start.new.run(ARGV)
 
