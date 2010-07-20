@@ -28,7 +28,7 @@ module AmazonAPI
     end
 
     def set_up(h)
-      h.each{|k,v| 
+      h.each{|k,v|
         begin
           self.send("#{k.downcase.to_sym}=", v)
         rescue NoMethodError
@@ -96,15 +96,10 @@ module AmazonAPI
     end
 
     def seturl
-      url = exurl(@url.text)
-      return nil unless url
+      return nil unless @url
       return nil unless @aws_id
-      return url + "?tag=#{@aws_id}"
-    end
-
-    def exurl(string)
-      str = string.gsub(/%([0-9a-fA-F]{2})/){[$1.delete('%')].pack("H*")}
-      return str if str.valid_encoding?
+      url = @url.text + "?tag=#{@aws_id}"
+      return url
     end
 
   end
